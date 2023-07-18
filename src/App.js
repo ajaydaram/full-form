@@ -1305,18 +1305,25 @@ function App() {
     reader.onloadend = async () => {
       const base64Data = reader.result.split(',')[1];
 
+// Include the recipientEmail and file in the request body
+      const data = {
+        recipientEmail: "calvary@daramajay.com", // Replace with the recipient's email address
+        file: base64Data, // The base64-encoded PDF data
+      };
+
       // Send the PDF as base64-encoded string to the backend using Axios
       try {
-        await axios.post('http://localhost:3000/survey', { file: base64Data });
-        console.log('PDF and email sent successfully.');
+        await axios.post("https://calvary-survey-e4bdd5c6c937.herokuapp.com", data); // Replace with your actual backend URL
+        console.log("PDF and email sent successfully.");
       } catch (error) {
-        console.error('Error generating PDF and sending email:', error);
+        console.error("Error generating PDF and sending email:", error);
       }
     };
-  }catch (error) {
-    console.error('Error processing survey results:', error);
-  }
-};
+    } catch (error) {
+      console.error("Error processing survey results:", error);
+    }
+  };
+
 
 const model = new Model(surveyJSON);
 model.onComplete.add(onSurveyComplete);

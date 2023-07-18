@@ -1307,7 +1307,7 @@ function App() {
 
 // Include the recipientEmail and file in the request body
       const data = {
-        recipientEmail: "calvary@daramajay.com", // Replace with the recipient's email address
+        recipientEmail: "kumarbandaru978@gmail.com", // Replace with the recipient's email address
         file: base64Data, // The base64-encoded PDF data
       };
 
